@@ -1,7 +1,7 @@
-from typing import Collection
+from typing import Collection, Optional
 
 class Person:
-    def __init__(self, name: str, age: int, *, jobs: Collection[str] | None = None) -> None:
+    def __init__(self, name: str, age: int, *, jobs: Optional[Collection[str]] = None) -> None:
         self.name = name
         self.age = age
         self.jobs = jobs or []
@@ -11,7 +11,7 @@ class Person:
         return self.name.split(" ")[0]
 
     @property
-    def surname(self) -> str | None:
+    def surname(self) -> Optional[str]:
         name = self.name.split(" ")[-1]
         return name if name != self.forename else None
 
